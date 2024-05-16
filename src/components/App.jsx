@@ -20,7 +20,7 @@ function App() {
     });
 
     const totalFeedback = review.good + review.neutral + review.bad;
-    const PositiveFeedback = totalFeedback > 0 ? Math.round((review.good / totalFeedback) * 100) : 0;
+    const positiveFeedback = totalFeedback > 0 ? Math.round((review.good / totalFeedback) * 100) : 0;
 
     useEffect(() => {
         window.localStorage.setItem("saved-review", JSON.stringify(review));
@@ -46,7 +46,7 @@ function App() {
             <Description />
             <Options updateFeedback={updateFeedback} resetState={resetState} hasFeedback={totalFeedback > 0} />
             {totalFeedback > 0 ? (
-                <Feedback review={review} totalFeedback={totalFeedback} PositiveFeedback={PositiveFeedback} />
+                <Feedback review={review} totalFeedback={totalFeedback} positiveFeedback={positiveFeedback} />
             ) : (
                 <Notification />
             )}
