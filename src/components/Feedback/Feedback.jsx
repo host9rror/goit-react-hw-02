@@ -1,10 +1,7 @@
 import PropTypes from 'prop-types';
 import css from "./Feedback.module.css"
 
-function Feedback({ review }) {
-    const totalFeedback = review.good + review.neutral + review.bad;
-    const PositiveFeedback = totalFeedback > 0 ? Math.round((review.good / totalFeedback) * 100) : 0;
-
+function Feedback({ review, totalFeedback, PositiveFeedback }) {
     return (
         <div className={css.optionsContainer}>
             <p className={css.optionsText}>Good: {review.good}</p>
@@ -21,7 +18,9 @@ Feedback.propTypes = {
         good: PropTypes.number.isRequired,
         neutral: PropTypes.number.isRequired,
         bad: PropTypes.number.isRequired
-    }).isRequired
+    }).isRequired,
+    totalFeedback: PropTypes.number.isRequired,
+    PositiveFeedback: PropTypes.number.isRequired
 };
 
 export default Feedback;

@@ -1,0 +1,9 @@
+.notificationContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notificationText {
+  font-size: 20px;
+}
